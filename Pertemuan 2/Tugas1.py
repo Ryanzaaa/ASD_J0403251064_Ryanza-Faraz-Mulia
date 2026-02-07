@@ -11,9 +11,14 @@
 # ==========================================================
 
 
-#baca file
+# ------------------------------- 
+# Konstanta nama file 
+# ------------------------------- 
 nama_file = "stok_barang.txt"
 
+# ------------------------------- 
+# Fungsi 1: Membaca data dari file 
+# ------------------------------- 
 
 def baca_stok_barang(nama_file):
     stok_dict = {} #variabel untuk menampung data stok barang
@@ -33,7 +38,9 @@ def baca_stok_barang(nama_file):
 #read = baca_stok_barang(nama_file)
 #print(len(read))
 
-#menu 1 menampilkan semua stok barang
+# ------------------------------- 
+# Fungsi 1: Menampilkan semua data 
+# ------------------------------- 
 
 def show(stok_dict):
     if len(stok_dict) == 0:
@@ -51,11 +58,14 @@ def show(stok_dict):
 
 #show(read)
 
-#menu 2 cari barang
+# ------------------------------- 
+# Fungsi 2: Cari barang berdasarkan kode 
+# -------------------------------
 
 def search (stok_dict):
     cari_barang = input("Masukkan kode barang yang ingin dicari: ").strip().upper()
 
+    #mengecek input user apakah ada di stok_dict
     if cari_barang in stok_dict:
         nama = stok_dict[cari_barang]["nama"]
         stok = stok_dict[cari_barang]["stok"]
@@ -69,7 +79,9 @@ def search (stok_dict):
 
 #search(read)
 
-#menu 3 tambah barang
+# ------------------------------- 
+# Fungsi 3: Tambah barang baru 
+# ------------------------------- 
 
 def add (stok_dict):
     print("\n============= Tambah Barang =============")
@@ -106,7 +118,9 @@ def add (stok_dict):
 #add(read)
 #show(read)
 
-#menu 4 update stok barang
+# ------------------------------- 
+# Fungsi 4: Update stok barang 
+# ------------------------------- 
 
 def update (stok_dict):
     kode = input("Masukkan kode barang yang akan diupdate stoknya: ").strip().upper()
@@ -121,6 +135,7 @@ def update (stok_dict):
         print("2. Kurangi stok")
         pilihan = input("Pilih aksi (1/2): ").strip()
     
+        #error handling
         if pilihan == "1" or pilihan == "2":
             break
         else:
@@ -160,7 +175,9 @@ def update (stok_dict):
 #update(read)
 #show(read)
 
-#Simpan file
+# ------------------------------- 
+# Fungsi 5: Menyimpan data ke file 
+# -------------------------------
 def save(nama_file,stok_dict):
     with open(nama_file,"w",encoding="utf-8") as file:
         for kode in sorted (stok_dict.keys()):
